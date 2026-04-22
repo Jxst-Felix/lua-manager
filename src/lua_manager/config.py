@@ -85,12 +85,12 @@ class Config:
 
     def _get_recurse(self, path: Path):
         for file in path.iterdir():
-            if file.is_file() and re.match(r'lua\d+\.exe', file):
-                version = self._get_version(path / file)
+            if file.is_file() and re.match(r'lua\d+\.exe$', file.name, re.IGNORECASE):
+                version = self._get_version(file)
                 if version:
-                    self.versions[version] = str(path)
+                    self.versions[version] = str(file.parent)
 
-            elif file.is_dir():
+            elif file.is_dir() and not file.is_symlink:
                 self._get_recurse(file)
 
     def refresh(self):

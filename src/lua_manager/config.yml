@@ -1,0 +1,6 @@
+default: 5.5.0
+lua_base: C:\Lua
+lua_rock: 5.5.0
+versions:
+  5.4.8: C:\Lua\Lua5.4.8\bin
+  5.5.0: C:\Lua\Lua5.5.0\bin
