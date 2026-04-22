@@ -9,6 +9,7 @@ def main():
     parser = argparse.ArgumentParser(prog = "lua-config")
 
     parser.add_argument("-r", "--refresh", action = "store_true")
+    parser.add_argument("--show", choices = ["lua_base", "lua_rock", "default", "versions"])
     parser.add_argument("--set_default")
     parser.add_argument("--set_base")
     parser.add_argument("--set_rock")
@@ -20,6 +21,13 @@ def main():
     if args.refresh:
         config.refresh()
         print("Refreshed Lua versions.")
+
+    if args.show:
+        value = config.settings.get(args.show, None)
+        if value:
+            print(f"Value of {args.show}: {value}")
+        else:
+            print(f"{args.show} is not part of the config")
 
     if args.set_default:
         config.default = args.set_default
