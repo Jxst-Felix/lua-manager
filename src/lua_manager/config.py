@@ -90,11 +90,12 @@ class Config:
                 if version:
                     self.versions[version] = str(file.parent)
 
-            elif file.is_dir() and not file.is_symlink:
+            elif file.is_dir() and not file.is_symlink():
                 self._get_recurse(file)
 
     def refresh(self):
         path = self.lua_base
+        self.versions = {}
         if not (path.exists() and path.is_dir()):
             self.lua_base = DEFAULT_CONFIG['lua_base']
             self.versions = DEFAULT_CONFIG['versions']
