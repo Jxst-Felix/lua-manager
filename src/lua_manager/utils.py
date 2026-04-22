@@ -18,4 +18,5 @@ def run_process(cmd: typing.List[str]):
     try:
         subprocess.run(cmd)
     except Exception as e:
-        print(f'Execution error: {e}')
+        command_str = ' '.join((cmd))
+        print(f'Execution error for command "{command_str}": {e}')
