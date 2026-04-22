@@ -6,7 +6,6 @@ from lua_manager.utils import run_process, get_lua_executable
 
 
 def main():
-    print("Executing Wua")
     parser = argparse.ArgumentParser(prog = "wlua")
 
     parser.add_argument("script", nargs = "?", help = "Lua script")

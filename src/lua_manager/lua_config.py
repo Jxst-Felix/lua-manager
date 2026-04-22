@@ -5,7 +5,6 @@ from lua_manager.config import Config
 
 
 def main():
-    print("Executing Lua-Config")
     parser = argparse.ArgumentParser(prog = "lua-config")
 
     parser.add_argument("-r", "--refresh", action = "store_true")
