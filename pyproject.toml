@@ -1,0 +1,41 @@
+[project]
+name = "lua-manager"
+description = "Simple python script for Lua version control"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+authors = [
+    { name = "Felix Leo Flores", email = "floresfelixleo.fleurs96@gmail.com" }
+]
+
+keywords = ["lua", "version manager", "cli"]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: Software Development :: Build Tools"
+]
+
+dynamic = ["dependencies", "version"]
+
+[project.urls]
+Homepage = "https://github.com/Jxst-Felix/lua-manager"
+Repository = "https://github.com/Jxst-Felix/lua-manager"
+Issues = "https://github.com/Jxst-Felix/lua-manager/issues"
+
+[project.scripts]
+lua-config = "lua_manager.lua_config:main"
+lua = "lua_manager.lua:main"
+luac = "lua_manager.luac:main"
+wlua = "lua_manager.wlua:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+version = {attr = "lua_manager.__version__"}
+dependencies = {file = ["requirements.txt"]}
